@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+namespace BrainGames\Cli;
+
+require_once(__DIR__ . '/../vendor/autoload.php');
+
+use function cli\line;
+use function cli\prompt;
+
+$isEven = fn(int $n): bool => $n % 2 === 0;
+$name = promptAndPrintName();
+line('Answer "yes" if the number is even, otherwise answer "no".');
+for ($i = 0; $i < 3; ++$i) {
+    $n = \mt_rand(0, 999);
+    line('Question: %s', $n);
+    $answer = prompt('Your answer');
+    $is_even = $isEven($n);
+    $correctAnswer = $is_even ? 'yes' : 'no';
+    $is_correct = $answer === $correctAnswer;
+    line(
+        $is_correct ? 'Correct!'
+        : "'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'." . PHP_EOL . "Let's try again, $name!"
+    );
+    if (!$is_correct) {
+        return;
+    }
+}
+line("Congratulations, $name!");
