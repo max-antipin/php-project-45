@@ -10,20 +10,17 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 use function cli\line;
 use function cli\prompt;
 
-$operations = [
-    '+' => static fn(int $n0, int $n1) => $n0 + $n1,
-    '-' => static fn(int $n0, int $n1) => $n0 - $n1,
-    '*' => static fn(int $n0, int $n1) => $n0 * $n1,
-];
+function getGCD(int $a, int $b): int {
+    return $b === 0? $a : getGCD($b, $a % $b);
+}
 $name = promptAndPrintName();
-line('What is the result of the expression?');
+line('Find the greatest common divisor of given numbers.');
 for ($i = 0; $i < 3; ++$i) {
     $n0 = \mt_rand(0, 99);
     $n1 = \mt_rand(0, 99);
-    $sign = array_rand($operations);
-    line('Question: %s', "$n0 $sign $n1");
+    line('Question: %s', "$n0 $n1");
     $answer = prompt('Your answer');
-    $correctAnswer = $operations[$sign]($n0, $n1);
+    $correctAnswer = getGCD($n0, $n1);
     $is_correct = (int)$answer === $correctAnswer;
     line(
         $is_correct ? 'Correct!'
