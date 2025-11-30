@@ -11,3 +11,9 @@
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/max-antipin/php-project-45/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/max-antipin/php-project-45/actions)
+
+## brain-even game demo
+[![asciicast](https://asciinema.org/a/Y7VARYASITnYsQ3SqhBF3TpSl.svg)](https://asciinema.org/a/Y7VARYASITnYsQ3SqhBF3TpSl)
+
+## brain-calc game demo
+[![asciicast](https://asciinema.org/a/relz4TDGXBydKOagZaTrNPkjI.svg)](https://asciinema.org/a/relz4TDGXBydKOagZaTrNPkjI)
