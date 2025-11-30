@@ -8,7 +8,7 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 use function cli\line;
 use function cli\prompt;
 
-$isEven = fn(int $n): bool => $n % 2 === 0;
+$isEven = static fn(int $n): bool => $n % 2 === 0;
 $name = promptAndPrintName();
 line('Answer "yes" if the number is even, otherwise answer "no".');
 for ($i = 0; $i < 3; ++$i) {
