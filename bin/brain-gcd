@@ -3,6 +3,11 @@
 
 declare(strict_types=1);
 
+use function BrainGames\Engine\runGame;
+
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-new BrainGames\Cli\Games\GcdGame()();
+runGame(
+    'Find the greatest common divisor of given numbers.',
+    'BrainGames\Cli\Games\GcdGame\generateGameQuestion'
+);

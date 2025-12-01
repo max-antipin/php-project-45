@@ -14,7 +14,13 @@
             "BrainGames\\Cli\\": "src"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Engine.php",
+            "src/Games/CalcGame.php",
+            "src/Games/EvenGame.php",
+            "src/Games/GcdGame.php",
+            "src/Games/PrimeGame.php",
+            "src/Games/ProgressionGame.php"
         ]
     },
     "require": {

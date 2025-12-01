@@ -2,26 +2,17 @@
 
 declare(strict_types=1);
 
-namespace BrainGames\Cli\Games;
+namespace BrainGames\Cli\Games\EvenGame;
 
 use BrainGames\Cli\GameQuestion;
-use BrainGames\Cli\Engine;
 
-class EvenGame extends Engine
+function generateGameQuestion(): GameQuestion
 {
-    protected function generateGameQuestion(): GameQuestion
-    {
-        $n = \mt_rand(0, 999);
-        return new GameQuestion((string)$n, $this->isEven($n) ? 'yes' : 'no');
-    }
+    $n = \mt_rand(0, 999);
+    return new GameQuestion((string)$n, isEven($n) ? 'yes' : 'no');
+}
 
-    protected function getGameRules(): string
-    {
-        return 'Answer "yes" if the number is even, otherwise answer "no".';
-    }
-
-    protected function isEven(int $n): bool
-    {
-        return $n % 2 === 0;
-    }
+function isEven(int $n): bool
+{
+    return $n % 2 === 0;
 }
