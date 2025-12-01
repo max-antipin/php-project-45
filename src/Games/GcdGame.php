@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace BrainGames\Cli\Games\GcdGame;
 
-use BrainGames\Cli\GameQuestion;
-
-function generateGameQuestion(): GameQuestion
+function generateGameQuestion(): array
 {
     $n0 = \mt_rand(0, 99);
     $n1 = \mt_rand(0, 99);
-    return new GameQuestion("$n0 $n1", (string)getGCD($n0, $n1));
+    return ["$n0 $n1", (string)getGCD($n0, $n1)];
 }
 
 function getGCD(int $a, int $b): int

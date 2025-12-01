@@ -15,7 +15,10 @@ function runGame(string $gameRules, callable $generateGameQuestion): void
     $name = promptAndPrintName();
     line($gameRules);
     for ($i = 0; $i < N_ROUNDS; ++$i) {
-        $gameQuestion = $generateGameQuestion();
+        $gameQuestion = (static fn(
+                string $question,
+                string $answer
+            ): object => (object)['question' => $question, 'answer' => $answer])(...$generateGameQuestion());
         line('Question: %s', $gameQuestion->question);
         $answer = prompt('Your answer');
         $isCorrect = $answer === $gameQuestion->answer;

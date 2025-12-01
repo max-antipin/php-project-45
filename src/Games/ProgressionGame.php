@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace BrainGames\Cli\Games\ProgressionGame;
 
-use BrainGames\Cli\GameQuestion;
-
-function generateGameQuestion(): GameQuestion
+function generateGameQuestion(): array
 {
     $start = \mt_rand(0, 20);
     $step = \mt_rand(1, 25);
@@ -17,5 +15,5 @@ function generateGameQuestion(): GameQuestion
     $i = array_rand($progr);
     $answer = $progr[$i];
     $progr[$i] = '..';
-    return new GameQuestion(implode(' ', $progr), (string)$answer);
+    return [implode(' ', $progr), (string)$answer];
 }
