@@ -12,7 +12,7 @@ function generateGameQuestion(): array
 
 function isPrime(int $n): bool
 {
-    if ($n === 0) {
+    if ($n === 0 || $n === 1) {
         return false;
     }
     for ($i = 2; $i < $n; ++$i) {
