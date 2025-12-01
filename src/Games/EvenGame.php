@@ -20,7 +20,7 @@ class EvenGame extends Engine
         return 'Answer "yes" if the number is even, otherwise answer "no".';
     }
 
-    private function isEven(int $n): bool
+    protected function isEven(int $n): bool
     {
         return $n % 2 === 0;
     }

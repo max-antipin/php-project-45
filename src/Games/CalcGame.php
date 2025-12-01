@@ -18,7 +18,7 @@ class CalcGame extends Engine
         ];
     }
 
-    private readonly array $operations;
+    protected readonly array $operations;
 
     protected function generateGameQuestion(): GameQuestion
     {

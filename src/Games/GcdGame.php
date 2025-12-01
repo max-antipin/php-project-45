@@ -21,7 +21,7 @@ class GcdGame extends Engine
         return 'Find the greatest common divisor of given numbers.';
     }
 
-    private function getGCD(int $a, int $b): int
+    protected function getGCD(int $a, int $b): int
     {
         return $b === 0 ? $a : $this->getGCD($b, $a % $b);
     }

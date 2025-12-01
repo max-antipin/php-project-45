@@ -34,7 +34,7 @@ abstract class Engine
     abstract protected function generateGameQuestion(): GameQuestion;
     abstract protected function getGameRules(): string;
 
-    private function getWrongAnswerMsg(string $wrongAnswer, string $correctAnswer, string $name): string
+    protected function getWrongAnswerMsg(string $wrongAnswer, string $correctAnswer, string $name): string
     {
         return "'$wrongAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'." . PHP_EOL
             . "Let's try again, $name!";

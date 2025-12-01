@@ -20,7 +20,7 @@ class PrimeGame extends Engine
         return 'Answer "yes" if given number is prime. Otherwise answer "no".';
     }
 
-    private function isPrime(int $n): bool
+    protected function isPrime(int $n): bool
     {
         if ($n === 0) {
             return false;
