@@ -19,12 +19,12 @@ abstract class Engine
             $gameQuestion = $this->generateGameQuestion();
             line('Question: %s', $gameQuestion->question);
             $answer = prompt('Your answer');
-            $is_correct = $answer === $gameQuestion->answer;
+            $isCorrect = $answer === $gameQuestion->answer;
             line(
-                $is_correct ? 'Correct!'
+                $isCorrect ? 'Correct!'
                 : $this->getWrongAnswerMsg($answer, $gameQuestion->answer, $name)
             );
-            if (!$is_correct) {
+            if (!$isCorrect) {
                 return;
             }
         }
