@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BrainGames\Cli\Games\ProgressionGame;
 
+use function BrainGames\Engine\runGame;
+
 function generateGameQuestion(): array
 {
     $start = \mt_rand(0, 20);
@@ -16,4 +18,12 @@ function generateGameQuestion(): array
     $answer = $progr[$i];
     $progr[$i] = '..';
     return [implode(' ', $progr), (string)$answer];
+}
+
+function run(): void
+{
+    runGame(
+        'What number is missing in the progression?',
+        __NAMESPACE__ . '\generateGameQuestion'
+    );
 }

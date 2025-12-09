@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BrainGames\Cli\Games\GcdGame;
 
+use function BrainGames\Engine\runGame;
+
 function generateGameQuestion(): array
 {
     $n0 = \mt_rand(0, 99);
@@ -14,4 +16,12 @@ function generateGameQuestion(): array
 function getGCD(int $a, int $b): int
 {
     return $b === 0 ? $a : getGCD($b, $a % $b);
+}
+
+function run(): void
+{
+    runGame(
+        'Find the greatest common divisor of given numbers.',
+        __NAMESPACE__ . '\generateGameQuestion'
+    );
 }

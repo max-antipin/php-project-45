@@ -3,11 +3,8 @@
 
 declare(strict_types=1);
 
-use function BrainGames\Engine\runGame;
+use function BrainGames\Cli\Games\EvenGame\run;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-runGame(
-    'Answer "yes" if the number is even, otherwise answer "no".',
-    'BrainGames\Cli\Games\EvenGame\generateGameQuestion'
-);
+run();

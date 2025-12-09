@@ -3,11 +3,8 @@
 
 declare(strict_types=1);
 
-use function BrainGames\Engine\runGame;
+use function BrainGames\Cli\Games\CalcGame\run;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-runGame(
-    'What is the result of the expression?',
-    'BrainGames\Cli\Games\CalcGame\generateGameQuestion'
-);
+run();

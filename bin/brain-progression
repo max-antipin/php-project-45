@@ -3,11 +3,8 @@
 
 declare(strict_types=1);
 
-use function BrainGames\Engine\runGame;
+use function BrainGames\Cli\Games\ProgressionGame\run;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-runGame(
-    'What number is missing in the progression?',
-    'BrainGames\Cli\Games\ProgressionGame\generateGameQuestion'
-);
+run();

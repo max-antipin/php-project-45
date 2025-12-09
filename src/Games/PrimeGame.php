@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BrainGames\Cli\Games\PrimeGame;
 
+use function BrainGames\Engine\runGame;
+
 function generateGameQuestion(): array
 {
     $n = \mt_rand(0, 99);
@@ -21,4 +23,12 @@ function isPrime(int $n): bool
         }
     }
     return true;
+}
+
+function run(): void
+{
+    runGame(
+        'Answer "yes" if given number is prime. Otherwise answer "no".',
+        __NAMESPACE__ . '\generateGameQuestion'
+    );
 }

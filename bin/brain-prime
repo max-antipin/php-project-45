@@ -3,11 +3,8 @@
 
 declare(strict_types=1);
 
-use function BrainGames\Engine\runGame;
+use function BrainGames\Cli\Games\PrimeGame\run;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-runGame(
-    'Answer "yes" if given number is prime. Otherwise answer "no".',
-    'BrainGames\Cli\Games\PrimeGame\generateGameQuestion'
-);
+run();
