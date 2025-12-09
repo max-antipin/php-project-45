@@ -8,11 +8,14 @@ use function BrainGames\Engine\runGame;
 
 function generateGameQuestion(): array
 {
-    static $operations = [
-        '+' => __NAMESPACE__ . '\sum',
-        '-' => __NAMESPACE__ . '\sub',
-        '*' => __NAMESPACE__ . '\mul',
-    ];
+    static $operations = array_map(
+        static fn(string $name): string => __NAMESPACE__ . '\\' . $name,
+        [
+            '+' => 'sum',
+            '-' => 'sub',
+            '*' => 'mul',
+        ]
+    );
     $n0 = \mt_rand(0, 99);
     $n1 = \mt_rand(0, 99);
     $sign = array_rand($operations);
