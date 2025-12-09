@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace BrainGames\Engine;
 
-use function BrainGames\Cli\promptAndPrintName;
 use function cli\line;
 use function cli\prompt;
 
 const N_ROUNDS = 3;
+
+function promptAndPrintName(): string
+{
+    line('Welcome to the Brain Games!');
+    $name = prompt('May I have your name?', marker:' ');
+    line('Hello, %s!', $name);
+    return $name;
+}
 
 function runGame(string $gameRules, callable $generateGameQuestion): void
 {
