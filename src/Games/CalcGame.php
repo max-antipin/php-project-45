@@ -9,9 +9,9 @@ use function BrainGames\Engine\runGame;
 function generateGameQuestion(): array
 {
     static $operations = [
-        '+' => static fn(int $n0, int $n1): int => $n0 + $n1,
-        '-' => static fn(int $n0, int $n1): int => $n0 - $n1,
-        '*' => static fn(int $n0, int $n1): int => $n0 * $n1,
+        '+' => __NAMESPACE__ . '\sum',
+        '-' => __NAMESPACE__ . '\sub',
+        '*' => __NAMESPACE__ . '\mul',
     ];
     $n0 = \mt_rand(0, 99);
     $n1 = \mt_rand(0, 99);
@@ -25,4 +25,19 @@ function run(): void
         'What is the result of the expression?',
         __NAMESPACE__ . '\generateGameQuestion'
     );
+}
+
+function sum(int $n0, int $n1): int
+{
+    return $n0 + $n1;
+}
+
+function sub(int $n0, int $n1): int
+{
+    return $n0 - $n1;
+}
+
+function mul(int $n0, int $n1): int
+{
+    return $n0 * $n1;
 }
