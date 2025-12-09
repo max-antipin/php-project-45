@@ -21,22 +21,19 @@ function runGame(string $gameRules, callable $generateGameQuestion): void
 {
     $name = promptAndPrintName();
     line($gameRules);
+
     for ($i = 0; $i < N_ROUNDS; ++$i) {
-        $gameQuestion = (static fn(
-                string $question,
-                string $answer
-            ): object => (object)['question' => $question, 'answer' => $answer])(...$generateGameQuestion());
-        line('Question: %s', $gameQuestion->question);
+        $gameQuestion = newGameQuestion(...$generateGameQuestion());
+        line('Question: %s', $gameQuestion['question']);
         $answer = prompt('Your answer');
-        $isCorrect = $answer === $gameQuestion->answer;
-        line(
-            $isCorrect ? 'Correct!'
-            : getWrongAnswerMsg($answer, $gameQuestion->answer, $name)
-        );
+        $isCorrect = $answer === $gameQuestion['answer'];
+        $line = $isCorrect ? 'Correct!' : getWrongAnswerMsg($answer, $gameQuestion['answer'], $name);
+        line($line);
         if (!$isCorrect) {
             return;
         }
     }
+
     line("Congratulations, $name!");
 }
 
@@ -44,4 +41,9 @@ function getWrongAnswerMsg(string $wrongAnswer, string $correctAnswer, string $n
 {
     return "'$wrongAnswer' is wrong answer ;(. Correct answer was '$correctAnswer'." . PHP_EOL
         . "Let's try again, $name!";
+}
+
+function newGameQuestion(string $question, string $answer): array
+{
+    return ['question' => $question, 'answer' => $answer];
 }

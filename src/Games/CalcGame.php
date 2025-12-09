@@ -9,9 +9,9 @@ use function BrainGames\Engine\runGame;
 function generateGameQuestion(): array
 {
     static $operations = [
-        '+' => static fn(int $n0, int $n1) => $n0 + $n1,
-        '-' => static fn(int $n0, int $n1) => $n0 - $n1,
-        '*' => static fn(int $n0, int $n1) => $n0 * $n1,
+        '+' => static fn(int $n0, int $n1): int => $n0 + $n1,
+        '-' => static fn(int $n0, int $n1): int => $n0 - $n1,
+        '*' => static fn(int $n0, int $n1): int => $n0 * $n1,
     ];
     $n0 = \mt_rand(0, 99);
     $n1 = \mt_rand(0, 99);
