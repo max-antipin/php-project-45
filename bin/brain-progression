@@ -3,8 +3,14 @@
 
 declare(strict_types=1);
 
-use function BrainGames\Cli\Games\ProgressionGame\run;
+foreach (['vendor', '../..'] as $i => $dir) {
+    $file = __DIR__ . "/../$dir/autoload.php";
+    if ($i || file_exists($file)) {
+        require_once $file;
+        break;
+    }
+}
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+use function BrainGames\Cli\Games\ProgressionGame\run;
 
 run();

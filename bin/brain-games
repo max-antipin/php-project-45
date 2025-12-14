@@ -3,6 +3,12 @@
 
 namespace BrainGames\Engine;
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+foreach (['vendor', '../..'] as $i => $dir) {
+    $file = __DIR__ . "/../$dir/autoload.php";
+    if ($i || file_exists($file)) {
+        require_once $file;
+        break;
+    }
+}
 
 promptAndPrintName();
