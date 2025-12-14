@@ -1,7 +1,7 @@
 {
     "name": "hexlet/code",
     "description": "The Brain Games test project",
-    "type": "project",
+    "type": "library",
     "license": "Unlicense",
     "authors": [
         {
