@@ -6,24 +6,21 @@ namespace BrainGames\Cli\Games\ProgressionGame;
 
 use function BrainGames\Engine\runGame;
 
-function generateGameQuestion(): array
-{
-    $start = \mt_rand(0, 20);
-    $step = \mt_rand(1, 25);
-    $progr = range(0, \mt_rand(5, 10));
-    foreach ($progr as &$n) {
-        $n = $start + $step * $n;
-    }
-    $i = array_rand($progr);
-    $answer = $progr[$i];
-    $progr[$i] = '..';
-    return [implode(' ', $progr), (string)$answer];
-}
-
 function run(): void
 {
     runGame(
         'What number is missing in the progression?',
-        __NAMESPACE__ . '\generateGameQuestion'
+        function (): array {
+            $start = \mt_rand(0, 20);
+            $step = \mt_rand(1, 25);
+            $progr = range(0, \mt_rand(5, 10));
+            foreach ($progr as &$n) {
+                $n = $start + $step * $n;
+            }
+            $i = array_rand($progr);
+            $answer = $progr[$i];
+            $progr[$i] = '..';
+            return [implode(' ', $progr), (string)$answer];
+        }
     );
 }
